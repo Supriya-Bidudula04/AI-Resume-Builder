@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 
 # 1. Setup - Paste your API Key here
-API_KEY = "AIzaSyA6qg7jokyg_10fiEfEC_OKH4hVgyVeALw"
+API_KEY = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=API_KEY)
 
 # 2. Automatically find the best available model
@@ -49,4 +49,5 @@ if st.button("Generate Resume Content"):
         except Exception as e:
             st.error(f"AI Error: {e}")
     else:
+
         st.warning("Please enter your experience.")
